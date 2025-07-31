@@ -21,7 +21,7 @@ Example:
 />
 ```
 
-## SingleIconWidget
+## IconsWidget
 
 Props:
 - caption: string
