@@ -1,5 +1,5 @@
 import { Box, Stack } from "@chakra-ui/react"
-import Switcher from "./Switcher"
+import Switcher from "./elements/Switcher"
 
 const SwitchersWidget = ({caption = "Виджет", switchers = ["Центральный вход", "Хозяйственны блок", "Левое крыло", "Правое крыло", "Промывочная"]}) => {
     return (

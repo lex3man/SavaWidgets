@@ -4,11 +4,12 @@ import { Zap } from 'lucide-react';
 import { useEffect, useState } from "react";
 
 
-const Switcher = ({caption = "ARtrack", time = "0"}) => {
+const Switcher = ({caption = "ARtrack"}) => {
 
   const [active, setActive] = useState(false)
   const [iconColor, setIconColor] = useState("white")
   const [onOff, setOnOff] = useState("вкл")
+  const [time, setTime] = useState(0)
 
   useEffect(() => {
     if (active) {
@@ -18,7 +19,16 @@ const Switcher = ({caption = "ARtrack", time = "0"}) => {
       setIconColor("white")
       setOnOff("выкл")
     }
+    setTime(0)
   }, [active])
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setTime((prevMinutes) => prevMinutes + 1);
+    }, 60000);
+
+    return () => clearInterval(intervalId);
+  }, [])
 
   return (
     <Stack
