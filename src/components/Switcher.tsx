@@ -4,7 +4,7 @@ import { Zap } from 'lucide-react';
 import { useEffect, useState } from "react";
 
 
-const Demo = ({caption = "ARtrack", time = "0"}) => {
+const Switcher = ({caption = "ARtrack", time = "0"}) => {
 
   const [active, setActive] = useState(false)
   const [iconColor, setIconColor] = useState("white")
@@ -49,4 +49,4 @@ const Demo = ({caption = "ARtrack", time = "0"}) => {
   )
 }
 
-export default Demo
+export default Switcher
