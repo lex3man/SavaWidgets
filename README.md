@@ -21,7 +21,7 @@ Example:
 />
 ```
 
-## IconsWidget
+## SingleIconWidget
 
 Props:
 - caption: string
@@ -44,7 +44,7 @@ Props:
 
 Example:
 ```Typescript
-<SingleIconWidget
+<IconsWidget
   icons=[
     {name: "Центральный вход", icon: "flame", active: false},
     {name: "Хозяйственны блок", icon: "flame", active: false},
