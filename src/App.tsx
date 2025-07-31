@@ -1,6 +1,6 @@
 
 import './App.css'
-import SwitchersWidget from './components/Widget'
+import SwitchersWidget from './components/SwitchersWidget'
 
 function App() {
 
