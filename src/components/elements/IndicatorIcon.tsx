@@ -1,10 +1,9 @@
-import { Flex, HStack, Stack, Switch, Text } from "@chakra-ui/react"
-import { Icon } from "@chakra-ui/react"
-import { Zap } from 'lucide-react';
+import { Box, Flex, HStack, Stack, Text } from "@chakra-ui/react"
+import { Flame } from 'lucide-react';
 import { useEffect, useState } from "react";
 
 
-const Switcher = ({caption = "ARtrack"}) => {
+const IndicatorIcon = ({caption = "ARtrack", act = false}) => {
 
   const [active, setActive] = useState(false)
   const [iconColor, setIconColor] = useState("grey")
@@ -26,9 +25,10 @@ const Switcher = ({caption = "ARtrack"}) => {
     const intervalId = setInterval(() => {
       setTime((prevMinutes) => prevMinutes + 1);
     }, 60000);
+    setActive(act)
 
     return () => clearInterval(intervalId);
-  }, [])
+  }, [act])
 
   return (
     <Stack
@@ -38,25 +38,25 @@ const Switcher = ({caption = "ARtrack"}) => {
       px="4"
       height={10}
     >
-      <Flex width={"400px"} justifyContent={"space-between"}>
+      <Flex width={"210px"} justifyContent={"space-between"}>
         <HStack>
-          <Icon background={iconColor} borderRadius={50} borderStyle={"solid"} borderWidth={2} padding={0} size={"2xl"}>
-            <Zap fill="black" color={"black"} />
-          </Icon>
+          <Box 
+            background={iconColor}
+            borderRadius={50}
+            borderStyle={"solid"}
+            borderWidth={2}
+            padding={2}
+          >
+            <Flame size={30} fill="black" color={"black"} />
+          </Box>
           <Stack gap={0} align={"start"}>
             <Text minW="8ch">{caption}</Text>
-            <Text fontSize={"xs"} minW="4ch">{onOff} {time} мин. назад</Text>
+            <Text fontSize={"2xs"} minW="4ch">{onOff} {time} мин. назад</Text>
           </Stack>
         </HStack>
-
-        <Switch.Root checked={active} colorPalette={"red"} onChange={() => setActive(!active)}>
-          <Switch.HiddenInput />
-          <Switch.Control />
-          <Switch.Label />
-        </Switch.Root>
       </Flex>
     </Stack>
   )
 }
 
-export default Switcher
+export default IndicatorIcon
